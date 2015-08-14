@@ -27,6 +27,44 @@
             <a class="navbar-brand" href="/">DIGITS</a>
         </div>
         <ul class="nav navbar-nav">
+            {%set stroke = "#76B900"%}
+            {%set fill = "#558500"%}
+            <svg height="60" width="60" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink">
+                <a xlink:href="/datasets/images/classification/new" target="_top">
+                    {# <polygon points="0,0  0,60  60,60  60,0" style="fill:white;stroke:green;stroke-width:3" /> #}
+
+                    <polygon points="15,20  42,20  35,30  5,30" style="fill:{{fill}};stroke:{{stroke}};stroke-width:3""/>
+                    <polygon points="15,15  42,15  35,25  5,25" style="fill:{{fill}};stroke:{{stroke}};stroke-width:3""/>
+                    <polygon points="15,10  42,10  35,20  5,20" style="fill:{{fill}};stroke:{{stroke}};stroke-width:3""/>
+                
+                    Sorry, your browser does not support inline SVG.
+                </a>
+            </svg>
+
+            <svg height="60" width="60"
+                 xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink">
+                <a xlink:href="/models/images/classification/new" target="_top">
+
+                    {% set x1 = 10 %}
+                    {% set x2 = 50 %}
+                    {% for y1 in [10, 30, 50] %}
+                    {% for y2 in [10, 30, 50] %}
+                    <line x1={{x1}} y1={{y1}} x2={{x2}} y2={{y2}} style="stroke:{{stroke}};stroke-width:2" />
+                    {% endfor %}
+                    {% endfor %}
+
+                    {% set r = 4 %}
+                    {% for x in [10, 50] %}
+                    {% for y in [10, 30, 50] %}
+                    <circle cx={{x}} cy={{y}} r={{ r }} stroke={{stroke}} stroke-width="3" fill={{fill}} />
+                    {% endfor %}
+                    {% endfor %}
+                    Sorry, your browser does not support inline SVG.  
+                </a>
+            </svg> 
+
             {% block nav %}
             {% endblock %}
         </ul>
