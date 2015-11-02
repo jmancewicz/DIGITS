@@ -110,6 +110,9 @@ class Task(StatusCls):
                     traceback   = self.traceback,
                     )
 
+        if 'DIGITS_MODE_TEST' in os.environ:
+            print self.traceback
+
         socketio.emit('task update',
                 message,
                 namespace='/jobs',
