@@ -1,8 +1,9 @@
 {# Copyright (c) 2015-2016, NVIDIA CORPORATION.  All rights reserved. #}
 {% extends "job.html" %}
+{% from "helper.html" import job_name_with_sweep_info, sweep_info %}
 
 {% block nav %}
-<li><a href="{{url_for('digits.model.views.show', job_id=model_job.id())}}">{{model_job.name()}}</a></li>
+<li><a href="{{url_for('digits.model.views.show', job_id=model_job.id())}}">{{job_name_with_sweep_info(model_job)}}</a></li>
 <li class="active"><a>Test Many</a></li>
 {% endblock %}
 
@@ -12,9 +13,10 @@
     <h1>
         {{model_job.name()}}
         <small>
-            {{job.job_type()}}
+            {{model_job.job_type()}}
         </small>
     </h1>
+    {{sweep_info(model_job)}}
 </div>
 
 {% if not network_outputs %}

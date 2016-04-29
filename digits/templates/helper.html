@@ -60,3 +60,15 @@
         <a href="{{url_for('digits.views.serve_file', path=obj.path(path, relative=True))}}">{{path}}</a>
     {% endif %}
 {% endmacro %}
+
+{% macro sweep_info(job) %}
+    {% if job.sweep_info %}
+    <small>
+        {{ job.sweep_info }}
+    </small>
+    {% endif %}
+{% endmacro %}
+{% macro job_name_with_sweep_info(job) %}
+    {{ job.name() }}
+    {{ sweep_info(job) }}
+{% endmacro %}

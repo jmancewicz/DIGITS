@@ -10,11 +10,12 @@
 {%     set show_url = '' %}
 {%     set abort_url = '' %}
 {% endif %}
+{% from "helper.html" import job_name_with_sweep_info %}
 
 <tr id="{{job.id()}}">
     <td>
         <h4 class="list-group-item-heading">
-            <a href="{{ show_url }}">{{ job.name() }}  </a>
+            <a href="{{ show_url }}">{{ job_name_with_sweep_info(job) }} </a>
         </h4>
     </td>
     <td>

@@ -100,19 +100,20 @@ def create():
         form.learning_rate.data = sweep['learning_rate']
         form.batch_size.data = sweep['batch_size']
 
-        # Augment Job Name
-        extra = ''
+        sweep_info = []
         if add_learning_rate:
-            extra += ' learning_rate:%s' % str(form.learning_rate.data[0])
+            sweep_info.append('learning_rate:%s' % str(form.learning_rate.data[0]))
         if add_batch_size:
-            extra += ' batch_size:%d' % form.batch_size.data[0]
+            sweep_info.append('batch_size:%d' % form.batch_size.data[0])
+        sweep_info = ', '.join(sweep_info)
 
         job = None
         try:
             job = GenericImageModelJob(
                     username    = utils.auth.get_username(),
-                    name        = form.model_name.data + extra,
+                    name        = form.model_name.data,
                     dataset_id  = datasetJob.id(),
+                    sweep_info  = sweep_info,
                     )
 
             # get framework (hard-coded to caffe for now)

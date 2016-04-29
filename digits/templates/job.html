@@ -1,6 +1,7 @@
 {# Copyright (c) 2014-2016, NVIDIA CORPORATION.  All rights reserved. #}
 
 {% from "helper.html" import print_flashes, print_exception %}
+{% from "helper.html" import job_name_with_sweep_info %}
 
 {% extends "layout.html" %}
 
@@ -90,7 +91,7 @@ socket.on('task update', function (msg) {
     <div class="container">
         <div class="row">
             <div id="show-job-name" class="col-sm-12">
-                <h2 style="display:inline;">{{ job.name() }}</h2>
+                <h2 style="display:inline;">{{ job_name_with_sweep_info(job) }}</h2>
                 {% if job | has_permission('edit') %}
                 <a href=# onClick="$('#show-job-name').hide(); $('#edit-job-name').show(); return false;"><span class="glyphicon glyphicon-edit"></span></a>
                 {% endif %}

@@ -44,7 +44,7 @@ class Job(StatusCls):
                     task.detect_snapshots()
             return job
 
-    def __init__(self, name, username):
+    def __init__(self, name, username, sweep_info=None):
         """
         Arguments:
         name -- name of this job
@@ -61,6 +61,7 @@ class Job(StatusCls):
         self.tasks = []
         self.exception = None
         self._notes = None
+        self.sweep_info = sweep_info
         self.event = threading.Event()
 
         os.mkdir(self._dir)
