@@ -541,15 +541,14 @@
     });
     app.filter("sort_with_empty_at_end", function () {
         return function (array, scope) {
-            console.log(scope.sort.active1, scope.sort.active2);
             if (!angular.isArray(array)) return;
             array.sort(
                 function(x, y)
                 {
-                    let x1 = x[scope.sort.active1];
-                    let y1 = y[scope.sort.active1];
-                    let x2 = x[scope.sort.active2];
-                    let y2 = y[scope.sort.active2];
+                    var x1 = x[scope.sort.active1];
+                    var y1 = y[scope.sort.active1];
+                    var x2 = x[scope.sort.active2];
+                    var y2 = y[scope.sort.active2];
 
                     if (x1 == y1) {
                         if (x2 === undefined) return true;
