@@ -26,7 +26,7 @@ Click on your MNIST image classification model to display dataset information: t
 
 In this example the path is `/fast-scratch/gheinrich/ws/digits/digits/jobs/20151111-210842-a4ec`.
 
-The next step is to create a generic dataset that DIGITS can use to train a generic model on. To this avail, click on `New Dataset\Images\Other` on the main page:
+The next step is to create a generic dataset that DIGITS can use to train a generic model on. To this avail, click on `New Dataset > Image > Other` on the main page:
 
 ![Create generic dataset](create-generic-dataset.png)
 
@@ -36,7 +36,7 @@ In the generic dataset creation form you need to provide the paths to the train 
 
 ## Model creation
 
-Now that you have a generic dataset to train on, you may create a generic model by clicking on `New Model\Images\Other` on the main page:
+Now that you have a generic dataset to train on, you may create a generic model by clicking on `New Model > Image > Other` on the main page:
 
 ![Create generic model](create-model.png)
 

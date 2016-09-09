@@ -53,7 +53,7 @@ def home(tab=2):
         return flask.jsonify(data)
     else:
         new_dataset_options = {
-            'Images': {
+            'Image': {
                 'image-classification': {
                     'title': 'Classification',
                     'url': flask.url_for(
@@ -68,7 +68,7 @@ def home(tab=2):
             }
 
         new_model_options = {
-            'Images': {
+            'Image': {
                 'image-classification': {
                     'title': 'Classification',
                     'url': flask.url_for(

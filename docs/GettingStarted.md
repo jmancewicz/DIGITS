@@ -38,7 +38,7 @@ The server should be at either `http://localhost/` (if installed from Deb packag
 
 ### Logging in
 
-Click on `New Dataset > Images > Classification`.
+Click on `New Dataset > Image > Classification`.
 This will lead you to the login page:
 
 > NOTE: there is no authentication - you don't even need a password.
@@ -71,7 +71,7 @@ You should now see your dataset listed.
 
 ### Training a Model
 
-Click on `New Model > Images > Classification`.
+Click on `New Model > Image > Classification`.
 This will lead you to the "New Image Classification Model" page.
 
 For this example, do the following:

@@ -49,7 +49,7 @@ The script also creates a validation database of 1000 samples. Overall, the scri
 
 > NOTE: `create_db.py` does not resize images. All images must have the same size.
 
-Now that we have created the required files, we may create the dataset using DIGITS. On the main page, click `New Dataset > Images > Other`:
+Now that we have created the required files, we may create the dataset using DIGITS. On the main page, click `New Dataset > Image > Other`:
 
 ![Create generic dataset](create-generic-dataset.png)
 
@@ -64,7 +64,7 @@ In the generic dataset creation form you need to provide the paths to:
 
 ## Model creation
 
-Now that you have a regression dataset to train on, you may create a Siamese model by clicking on `New Model > Images > Other` on the main page:
+Now that you have a regression dataset to train on, you may create a Siamese model by clicking on `New Model > Image > Other` on the main page:
 
 ![Create generic model](create-model.png)
 

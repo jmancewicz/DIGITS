@@ -58,7 +58,7 @@ Save the file. We'll upload it along with your model in the next section.
 
 > NOTE: If you've never created a model in DIGITS before, you might want to follow the walkthrough in the [Getting Started guide](../../docs/GettingStarted.md#training-a-model) before proceeding.
 
-1. Click on `New Model > Images > Classification` from the homepage.
+1. Click on `New Model > Image > Classification` from the homepage.
 2. Select your MNIST dataset from the list of datasets.
 3. Click on `Use client side file` and select the Python file that you created earlier.
 4. Click on `LeNet` under `Standard Networks > Caffe`.

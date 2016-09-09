@@ -90,7 +90,7 @@ Classes are mapped to numerical IDs as follows:
 
 ### Loading the data into DIGITS
 
-On the DIGITS home page, click `New Dataset > Images > Segmentation`:
+On the DIGITS home page, click `New Dataset > Image > Segmentation`:
 
 ![select dataset](select-dataset.png)
 
@@ -147,7 +147,7 @@ arXiv:1411.4038
 
 ### Training FCN-Alexnet in DIGITS
 
-On the DIGITS home page, click `New Model > Images > Segmentation`:
+On the DIGITS home page, click `New Model > Image > Segmentation`:
 
 ![select model](select-model.png)
 
