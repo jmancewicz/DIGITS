@@ -4,6 +4,7 @@ from __future__ import absolute_import
 from ..job import DatasetJob
 from digits.dataset import tasks
 from digits.utils import subclass, override, constants
+from digits import extensions
 
 # NOTE: Increment this everytime the pickled object changes
 PICKLE_VERSION = 1
@@ -109,7 +110,13 @@ class GenericDatasetJob(DatasetJob):
 
     @override
     def job_type(self):
-        return 'Generic Dataset'
+        """
+        Return the job type based on the extension
+        """
+        extension = extensions.data.get_extension(self.extension_id)
+        if extension is None:
+            raise ValueError("Unknown extension '%s'" % self.extension_id)
+        return extension.get_category() + ' ' + extension.get_title() + ' Dataset'
 
     @override
     def json_dict(self, verbose=False):
