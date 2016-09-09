@@ -64,7 +64,7 @@ Using "image-bounding-boxes,image-gradients,all-raw-data"
 ```
 
 Upon restarting DIGITS, the Gradient Data Extension will show on the home page as below.
-Select the `Datasets` tab then click `New Dataset>Images>Gradients`:
+Select the `Datasets` tab then click `New Dataset > Image > Gradients`:
 
 ![test image](select-gradient-data-extension.png)
 
@@ -97,7 +97,7 @@ See for example the `test.png` image which is created using gradients of 0.5 in 
 ![test image](test.png)
 
 Now that we have created the required files, we may create the dataset using DIGITS.
-On the main page, select the `Datasets` tab then click `New Dataset>Images>Other`:
+On the main page, select the `Datasets` tab then click `New Dataset > Image > Other`:
 
 ![Create generic dataset](create-generic-dataset.png)
 
@@ -113,7 +113,7 @@ In the generic dataset creation form you need to provide the paths to:
 ## Model creation
 
 Now that you have a regression dataset to train on, you will create a regression model.
-On the home page, select the `Models` tab then click `New Model>Images>Gradients` or `New Model>Images>Other`, depending on how you created the dataset.
+On the home page, select the `Models` tab then click `New Model > Image > Gradients` or `New Model > Image > Other`, depending on how you created the dataset.
 
 ![Create generic model](create-model.png)
 

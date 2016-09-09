@@ -69,7 +69,7 @@ class DataIngestion(DataIngestionInterface):
     @staticmethod
     @override
     def get_category():
-        return "Images"
+        return "Image"
 
     @staticmethod
     @override

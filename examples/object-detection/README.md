@@ -61,7 +61,7 @@ For example if the image folder includes an image named `foo.png` then the label
 
 ### Loading the data into DIGITS
 
-On the DIGITS home page, select the `Datasets` tab then click `New Dataset > Images > Object Detection`:
+On the DIGITS home page, select the `Datasets` tab then click `New Dataset > Image > Object Detection`:
 
 ![select dataset](select-object-detection-dataset.jpg)
 
@@ -93,7 +93,7 @@ A suitable pre-trained GoogLeNet `.caffemodel` may be found on this [page](https
 
 ### Training DetectNet in DIGITS
 
-On the DIGITS home page, select the `Models` tab then click `New Model > Images > Object Detection`:
+On the DIGITS home page, select the `Models` tab then click `New Model > Image > Object Detection`:
 
 ![select dataset](select-object-detection-model.jpg)
 

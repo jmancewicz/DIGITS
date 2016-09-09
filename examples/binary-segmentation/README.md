@@ -38,7 +38,7 @@ $ ./create_images.py out
 This script also creates one larger image which is a `10x10` grid of random images.
 
 
-On the DIGITS home page, select the `Datasets` tab then click `Images>Processing`:
+On the DIGITS home page, select the `Datasets` tab then click `Image > Processing`:
 
 ![select dataset](select-dataset.png)
 
@@ -50,7 +50,7 @@ When you are ready, give your dataset a name then click the `Create` button:
 
 ## Model Creation
 
-On the DIGITS home page, select the `Datasets` tab then click `Images>Processing`:
+On the DIGITS home page, select the `Datasets` tab then click `Image > Processing`:
 
 ![select model](select-model.png)
 

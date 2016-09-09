@@ -43,7 +43,7 @@ Image files are saved into sub-folders that are named after the sample's class.
 This makes it possible to have DIGITS proceed as if we were creating an image classification network.
 We will see later how that step may be skipped.
 
-On the DIGITS homepage, click `New Dataset > Images > Classification` then:
+On the DIGITS homepage, click `New Dataset > Image > Classification` then:
 - change the image type to `grayscale` and the image height and width to `32`,
 - point to the location of your dataset,
 - use 10% of samples for validation and 1% for testing,
@@ -60,7 +60,7 @@ If you haven't done so already, install the `dpnn` Lua package:
 luarocks install dpnn
 ```
 
-On the DIGITS homepage, click `New Model > Images > Classification` then:
+On the DIGITS homepage, click `New Model > Image > Classification` then:
 - select the dataset you just created,
 - set the Mean Subtraction method to "None",
 - select the "Custom Network" pane then click "Torch",
@@ -102,7 +102,7 @@ You can use the same script to create another database out of `test.csv` (from D
 ./create_dataset.py $DBPEDIA/dbpedia_csv/test.csv dbpedia/val
 ```
 
-On the DIGITS homepage, click `New Dataset > Images > Other` then:
+On the DIGITS homepage, click `New Dataset > Image > Other` then:
 - in the "Images LMDB" column, select the paths to your train and validation databases, respectively (note that the labels are encoded in these databases so you don't need to specify an alternative database for labels)
 - give your dataset a name then click 'Create'.
 
@@ -118,7 +118,7 @@ For classification models, DIGITS is able to extract the predicted class by iden
 For generic ("other") models, DIGITS only shows the raw network output.
 Besides, quality metrics like accuracy of confusion matrices are not computed automatically for those models.
 
-In order to create the model, on the DIGITS homepage, click `New Model > Images > Other` then proceed exactly as you did when creating the image classification model.
+In order to create the model, on the DIGITS homepage, click `New Model > Image > Other` then proceed exactly as you did when creating the image classification model.
 
 After training you can test samples using the "Test a Database" section.
 You just need to point to the location of an LMDB database, for example the validation database.
