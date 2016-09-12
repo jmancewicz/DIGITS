@@ -531,6 +531,7 @@ try {
         $controller('job_controller', {$scope: $scope});
         $scope.title = 'Datasets';
         $scope.fields = [{name: 'name',      show: true},
+                         {name: 'job_type',  show: true, min_width: 160},
                          {name: 'refs',      show: true},
                          {name: 'backend',   show: true},
                          {name: 'status',    show: true},
@@ -573,6 +574,12 @@ try {
         var factor = "1" + Array(+(places > 0 && places + 1)).join("0");
         return Math.round(input * factor) / factor;
     }
+
+    app.filter('replace', function ($filter) {
+        return function (input, w0, w1) {
+            return input.replace(w0, w1);
+        }
+    });
 
     app.filter('precision', function ($filter) {
         return function (input, sigfigs) {
@@ -715,7 +722,6 @@ try {
     });
 
     app.directive('dgHasLabels', function() {
-        console.log('has-labels');
         return {
             restrict: 'AE',
             replace: true,

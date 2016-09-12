@@ -171,6 +171,11 @@ def json_dict(job, model_output_fields):
             'progress': int(round(100*job.get_progress())),
         })
 
+    if 'job_type' in dir(job):
+        d.update({
+            'job_type': job.job_type(),
+        })
+
     if hasattr(job, 'dataset_id'):
         d.update({
             'dataset_id': job.dataset_id,

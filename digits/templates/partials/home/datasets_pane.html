@@ -88,6 +88,9 @@
                             </small>
                         </td>
                         <td>
+                            {[ job.job_type | replace:'Dataset':'' ]}
+                        </td>
+                        <td>
                             {[ job.refs | positive ]}
                         </td>
                         <td>
