@@ -1,18 +1,18 @@
 # Copyright (c) 2014-2016, NVIDIA CORPORATION.  All rights reserved.
 from __future__ import absolute_import
 
-from datetime import timedelta
 import io
 import json
 import math
 import os
 import tarfile
-import tempfile
+import time
 import zipfile
 
 import flask
 import werkzeug.exceptions
 
+import digits
 from . import images as model_images
 from . import ModelJob
 from digits.pretrained_model.job import PretrainedModelJob
@@ -96,6 +96,21 @@ def customize():
             'snapshot': snapshot
             })
 
+@blueprint.route('/extension-static/<extension_id>/<path:filename>')
+def extension_static(extension_id, filename):
+    """
+    Returns static files from an extension's static directory.
+    '/models/extension-static/image-segmentation-gl/js/gl.js'
+    would send the file
+    'digits/extensions/view/imageSegmentationGL/static/js/gl.js'
+    """
+    extension = extensions.view.get_extension(extension_id)
+    if extension is None:
+        raise ValueError("Unknown extension '%s'" % extension_id)
+
+    digits_root = os.path.dirname(os.path.abspath(digits.__file__))
+    rootdir = os.path.join(digits_root, *['extensions', 'view', extension.get_dirname(), 'static'])
+    return flask.send_from_directory(rootdir, filename)
 
 @blueprint.route('/view-config/<extension_id>', methods=['GET'])
 def view_config(extension_id):

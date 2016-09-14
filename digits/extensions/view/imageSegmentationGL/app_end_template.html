@@ -1,0 +1,16 @@
+<!-- Copyright (c) 2016, NVIDIA CORPORATION.  All rights reserved. -->
+
+    </div>
+</div>
+
+<script type="text/javascript" src="/models/extension-static/image-segmentation-gl/js/in-view.js"></script>
+
+<script>
+ $(window).blur(function(e) {
+     console.log('blur');
+ });
+ $(window).focus(function(e) {
+     console.log('focus');
+     $(window).scroll();
+ });
+</script>

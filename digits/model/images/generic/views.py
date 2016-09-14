@@ -4,7 +4,7 @@ from __future__ import absolute_import
 import os
 import re
 import tempfile
-
+import pickle
 import flask
 import werkzeug.exceptions
 
@@ -651,31 +651,46 @@ def infer_many():
         if num_test_images is not None and len(paths) >= num_test_images:
             break
 
-    # create inference job
-    inference_job = ImageInferenceJob(
-        username=utils.auth.get_username(),
-        name="Infer Many Images",
-        model=model_job,
-        images=paths,
-        epoch=epoch,
-        layers='none',
-        resize=resize,
+    if False:
+        # create inference job
+        inference_job = ImageInferenceJob(
+            username=utils.auth.get_username(),
+            name="Infer Many Images",
+            model=model_job,
+            images=paths,
+            epoch=epoch,
+            layers='none',
+            resize=resize,
         )
 
-    # schedule tasks
-    scheduler.add_job(inference_job)
+        # schedule tasks
+        scheduler.add_job(inference_job)
 
-    # wait for job to complete
-    inference_job.wait_completion()
+        # wait for job to complete
+        inference_job.wait_completion()
 
-    # retrieve inference data
-    inputs, outputs, _ = inference_job.get_data()
+        # retrieve inference data
+        inputs, outputs, _ = inference_job.get_data()
 
-    # set return status code
-    status_code = 500 if inference_job.status == 'E' else 200
+        pickle.dump(inputs, open("/tmp/inputs.p", "wb"))
+        pickle.dump(outputs, open("/tmp/outputs.p", "wb"))
+        pickle.dump(inference_job, open("/tmp/inference_job.p", "wb"))
 
-    # delete job folder and remove from scheduler list
-    scheduler.delete_job(inference_job)
+        # set return status code
+        status_code = 500 if inference_job.status == 'E' else 200
+
+        # delete job folder and remove from scheduler list
+        scheduler.delete_job(inference_job)
+
+    else:
+        inputs = pickle.load(open("/tmp/inputs.p", "rb"))
+        outputs = pickle.load(open("/tmp/outputs.p", "rb"))
+        inference_job = pickle.load(open("/tmp/inference_job.p", "rb"))
+        status_code = 200
+
+    inference_job = pickle.load(open("/tmp/inference_job.p", "rb"))
+    for key in inference_job.__dict__.keys():
+        print key, ':', inference_job.__dict__[key]
 
     if outputs is not None and len(outputs) < 1:
         # an error occurred
